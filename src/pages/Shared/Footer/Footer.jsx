@@ -6,6 +6,28 @@ const Footer = () => {
     <div className="w-full my-bg text-black pt-10 pb-5">
       <Container>
         <footer className="footer">
+          <div className="">
+            <Link to="/">
+              <div className="flex justify-center items-center">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
+                  Soul
+                </span>
+                <img
+                  src={"https://i.ibb.co/fCxzStJ/darklogo.png"}
+                  className="w-6 sm:w-8 md:w-10 lg:w-12"
+                  alt="Nav Logo"
+                />
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
+                  Bliss
+                </span>
+              </div>
+            </Link>
+            <p>
+              Soul Bliss Yoga Camp School
+              <br />
+              Providing reliable tech since 2019
+            </p>
+          </div>
           <div>
             <span className="font-semibold text-[#13795B] text-lg">
               Services
@@ -37,28 +59,6 @@ const Footer = () => {
             <a className="link link-hover">Terms of use</a>
             <a className="link link-hover">Privacy policy</a>
             <a className="link link-hover">Cookie policy</a>
-          </div>
-          <div>
-            <Link to="/">
-              <div className="flex justify-center items-center">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Soul
-                </span>
-                <img
-                  src={"https://i.ibb.co/fCxzStJ/darklogo.png"}
-                  className="w-6 sm:w-8 md:w-10 lg:w-12"
-                  alt="Nav Logo"
-                />
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Bliss
-                </span>
-              </div>
-            </Link>
-            <p>
-              Soul Bliss Yoga Camp School
-              <br />
-              Providing reliable tech since 2019
-            </p>
           </div>
         </footer>
         <hr className="my-5" />
