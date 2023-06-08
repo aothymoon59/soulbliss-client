@@ -1,26 +1,15 @@
 import { Link } from "react-router-dom";
 import Container from "../../../components/Container/Container";
+import LogoTitle from "../../../components/LogoTitle/LogoTitle";
 
 const Footer = () => {
   return (
-    <div className="w-full my-bg text-black pt-10 pb-5">
+    <div className="w-full my-bg black-text pt-10 pb-5">
       <Container>
         <footer className="footer">
           <div className="">
             <Link to="/">
-              <div className="flex justify-center items-center">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Soul
-                </span>
-                <img
-                  src={"https://i.ibb.co/fCxzStJ/darklogo.png"}
-                  className="w-6 sm:w-8 md:w-10 lg:w-12"
-                  alt="Nav Logo"
-                />
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Bliss
-                </span>
-              </div>
+              <LogoTitle />
             </Link>
             <p>
               Soul Bliss Yoga Camp School
@@ -29,18 +18,14 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span className="font-semibold text-[#13795B] text-lg">
-              Services
-            </span>
+            <span className="font-semibold theme-text text-lg">Services</span>
             <a className="link link-hover">Branding</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>
           </div>
           <div>
-            <span className=" font-semibold text-[#13795B] text-lg">
-              Company
-            </span>
+            <span className=" font-semibold theme-text text-lg">Company</span>
             <Link to="/" className="link link-hover">
               Home
             </Link>
@@ -55,7 +40,7 @@ const Footer = () => {
             </Link>
           </div>
           <div>
-            <span className="font-semibold text-[#13795B] text-lg">Legal</span>
+            <span className="font-semibold theme-text text-lg">Legal</span>
             <a className="link link-hover">Terms of use</a>
             <a className="link link-hover">Privacy policy</a>
             <a className="link link-hover">Cookie policy</a>

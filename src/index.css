@@ -2,18 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* montserrat font  */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* bg theme color  */
 .my-bg {
     background-color: rgb(32 201 151 / 10%);
+}
+
+.black-text {
+    color: black;
+}
+
+.theme-text {
+    color: #13795B;
 }
 
 /* btn style  */
 .my-btn {
     @apply bg-[#13795B] text-white py-2 px-4 rounded-xl font-semibold border-2 border-[#13795B]
 }
-
-
-
-
-/* btn color  */
-/* #13795B */

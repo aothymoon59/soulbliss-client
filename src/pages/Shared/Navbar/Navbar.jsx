@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import Container from "../../../components/Container/Container";
+import LogoTitle from "../../../components/LogoTitle/LogoTitle";
 
 const Navbar = () => {
   const navOptions = (
@@ -10,7 +11,7 @@ const Navbar = () => {
           title="Home"
           className={({ isActive }) =>
             `px-3 transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-              isActive ? " text-[#13795B]" : "text-black"
+              isActive ? " theme-text" : "black-text"
             }`
           }
         >
@@ -23,7 +24,7 @@ const Navbar = () => {
           title="Instructors"
           className={({ isActive }) =>
             `px-3 transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-              isActive ? " text-[#13795B]" : "text-black"
+              isActive ? " theme-text" : "black-text"
             }`
           }
         >
@@ -36,7 +37,7 @@ const Navbar = () => {
           title="Classes"
           className={({ isActive }) =>
             `px-3 transition-colors duration-300 transform  hover:bg-gray-300 hover:text-gray-700 ${
-              isActive ? " text-[#13795B]" : "text-black"
+              isActive ? " theme-text" : "black-text"
             }`
           }
         >
@@ -49,7 +50,7 @@ const Navbar = () => {
           title="Dashboard"
           className={({ isActive }) =>
             `px-3 transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-              isActive ? " text-[#13795B]" : "text-black"
+              isActive ? " theme-text" : "black-text"
             }`
           }
         >
@@ -59,7 +60,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="fixed w-full my-bg text-black z-50 shadow-sm">
+    <div className="fixed w-full my-bg black-text z-50 shadow-sm">
       <Container>
         <div className="navbar ">
           <div className="navbar-start">
@@ -88,19 +89,7 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/">
-              <div className="flex justify-center items-center">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Soul
-                </span>
-                <img
-                  src={"https://i.ibb.co/fCxzStJ/darklogo.png"}
-                  className="w-6 sm:w-8 md:w-10 lg:w-12"
-                  alt="Nav Logo"
-                />
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
-                  Bliss
-                </span>
-              </div>
+              <LogoTitle />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
@@ -111,7 +100,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to="/login"
-              className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear"
+              className="my-btn hover:bg-transparent hover:theme-text transition-all duration-200 ease-linear"
             >
               Login
             </Link>
