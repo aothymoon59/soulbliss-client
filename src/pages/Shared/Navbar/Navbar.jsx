@@ -60,7 +60,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="fixed w-full my-bg black-text z-50 shadow-sm">
+    <div className="w-full my-bg black-text z-50 shadow-sm">
       <Container>
         <div className="navbar ">
           <div className="navbar-start">
