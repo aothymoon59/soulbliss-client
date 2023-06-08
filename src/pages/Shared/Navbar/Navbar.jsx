@@ -100,7 +100,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to="/login"
-              className="my-btn hover:bg-transparent hover:theme-text transition-all duration-200 ease-linear"
+              className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear"
             >
               Login
             </Link>
