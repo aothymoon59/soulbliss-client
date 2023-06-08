@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import Container from "../Container/Container";
+import Container from "../../../components/Container/Container";
 
 const Navbar = () => {
   const navOptions = (
