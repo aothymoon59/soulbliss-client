@@ -23,7 +23,7 @@ const Login = () => {
       <div className="flex flex-col lg:flex-row justify-center items-center gap-10 my-20">
         <div className="w-full lg:w-[50%]">
           <Lottie
-            className="lg:w-3/4"
+            className="lg:w-3/4 mr-auto"
             animationData={loginAnimation}
             loop={true}
           />
