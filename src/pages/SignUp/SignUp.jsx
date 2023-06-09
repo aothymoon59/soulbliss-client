@@ -20,6 +20,7 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -52,9 +53,24 @@ const SignUp = () => {
           .then(() => {
             updateUserProfile(name, imgUrl)
               .then(() => {
-                toast.success("Successfully sign Up!");
-                setLoading(false);
-                navigate(from, { replace: true });
+                const savedUser = { name, email, role: "user" };
+
+                fetch(`${import.meta.env.VITE_API_URL}/users`, {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(savedUser),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.insertedId) {
+                      reset();
+                      toast.success("Successfully sign Up!");
+                      setLoading(false);
+                      navigate(from, { replace: true });
+                    }
+                  });
               })
               .catch((err) => {
                 console.log(err.message);
