@@ -9,8 +9,8 @@ const AdminMenu = () => {
       <NavLink
         to="manageClass"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-            themeIcon ? "black-text" : "white-text"
+          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black   ${
+            themeIcon ? "black-text" : ""
           } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
         }
       >
@@ -20,8 +20,8 @@ const AdminMenu = () => {
       <NavLink
         to="manageUsers"
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-            themeIcon ? "black-text" : "white-text"
+          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black    ${
+            themeIcon ? "black-text" : ""
           } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
         }
       >
