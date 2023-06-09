@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { GiNotebook } from "react-icons/gi";
 
-import { FaCheckSquare } from "react-icons/fa";
+import { FaCheckSquare, FaHistory } from "react-icons/fa";
 
 const StudentMenu = () => {
   const { themeIcon } = useAuth();
@@ -29,6 +29,17 @@ const StudentMenu = () => {
       >
         <GiNotebook className="w-5 h-5" />
         <span className="mx-4 font-medium">My Enrolled Classes</span>
+      </NavLink>
+      <NavLink
+        to="paymentHistory"
+        className={({ isActive }) =>
+          `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black   ${
+            themeIcon ? "black-text" : ""
+          } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
+        }
+      >
+        <FaHistory className="w-5 h-5" />
+        <span className="mx-4 font-medium">Payment History</span>
       </NavLink>
     </>
   );

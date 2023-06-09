@@ -13,6 +13,7 @@ import AddClass from "../pages/Dashboard/InstructorPages/AddClass";
 import MyClasses from "../pages/Dashboard/InstructorPages/MyClasses";
 import SelectedClass from "../pages/Dashboard/StudentPages/SelectedClass";
 import EnrolledClass from "../pages/Dashboard/StudentPages/EnrolledClass";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       // admin routes
       { path: "/dashboard/manageClass", element: <ManageClass /> },

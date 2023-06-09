@@ -1,19 +1,34 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineBars } from "react-icons/ai";
-
 import LogoTitle from "../LogoTitle/LogoTitle";
 import AdminMenu from "./AdminMenu";
 import InstructorMenu from "./InstructorMenu";
 import StudentMenu from "./StudentMenu";
 import useAuth from "../../hooks/useAuth";
+import {
+  FaBuromobelexperte,
+  FaChalkboardTeacher,
+  FaHome,
+  FaSignOutAlt,
+} from "react-icons/fa";
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
-  const { themeIcon } = useAuth();
+  const { themeIcon, logOut } = useAuth();
+  const navigate = useNavigate();
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
+
+  const handleLogOut = () => {
+    logOut();
+    navigate("/");
+  };
+
+  //TODO: load data from the server to have dynamic isAdmin based on data
+  const isAdmin = true;
+  const isInstructor = true;
 
   return (
     <>
@@ -59,12 +74,63 @@ const Sidebar = () => {
             <nav>
               <>
                 {/* Menu Links */}
-                <AdminMenu />
-                <InstructorMenu />
-                <StudentMenu />
+                {isAdmin ? (
+                  <AdminMenu />
+                ) : isInstructor ? (
+                  <InstructorMenu />
+                ) : (
+                  <StudentMenu />
+                )}
               </>
             </nav>
           </div>
+        </div>
+        <div>
+          <hr />
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black    ${
+                themeIcon ? "black-text" : ""
+              } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
+            }
+          >
+            <FaHome className="w-5 h-5" />
+            <span className="mx-4 font-medium">Go To Home</span>
+          </NavLink>
+          <NavLink
+            to="/instructors"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black    ${
+                themeIcon ? "black-text" : ""
+              } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
+            }
+          >
+            <FaChalkboardTeacher className="w-5 h-5" />
+            <span className="mx-4 font-medium">Instructors</span>
+          </NavLink>
+          <NavLink
+            to="/classes"
+            className={({ isActive }) =>
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black    ${
+                themeIcon ? "black-text" : ""
+              } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
+            }
+          >
+            <FaBuromobelexperte className="w-5 h-5" />
+            <span className="mx-4 font-medium">Classes</span>
+          </NavLink>
+
+          <button
+            onClick={handleLogOut}
+            className={`flex w-full items-center px-4 py-2 mt-5  hover:bg-gray-300 hover:text-black transition-colors duration-300 transform ${
+              themeIcon ? "black-text" : ""
+            }`}
+          >
+            <FaSignOutAlt />
+
+            <span className="mx-4 font-medium">Logout</span>
+          </button>
         </div>
       </div>
     </>
