@@ -1,10 +1,10 @@
-import Spinner from "../../../components/Spinner/Spinner";
+import Spinner from "../../../components/Spinner/Spinner.jsx";
 
 const Home = () => {
   return (
     <div>
       <h2>This is home</h2>
-      <Spinner />
+      <Spinner></Spinner>
     </div>
   );
 };

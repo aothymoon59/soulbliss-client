@@ -20,12 +20,33 @@ const SignUp = () => {
     const password = data.password;
     const confirm = data.confirm;
 
+    // TODO: use toast here
     if (password !== confirm) {
       alert("Confirm password no match");
       return;
     }
-    console.log(data);
+
+    // upload image
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMGBB_KEY
+    }`;
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        console.log(imgData.data.display_url);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
+
   return (
     <Container>
       <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 my-20">
@@ -70,15 +91,6 @@ const SignUp = () => {
               {errors.email && (
                 <span className="text-red-600 mt-2">Email is required</span>
               )}
-            </div>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Upload your photo</span>
-              </label>
-              <input
-                type="file"
-                className="file-input file-input-bordered w-full"
-              />
             </div>
             <div className="form-control mb-6 relative">
               <label className="label">
