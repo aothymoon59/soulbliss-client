@@ -92,6 +92,20 @@ const SignUp = () => {
                 <span className="text-red-600 mt-2">Email is required</span>
               )}
             </div>
+            <div className="form-control mb-4">
+              <label className="label">
+                <span className="label-text">Upload your Photo</span>
+              </label>
+              <input
+                type="file"
+                {...register("image", { required: true })}
+                name="image"
+                className="file-input file-input-bordered w-full"
+              />
+              {errors.image && (
+                <span className="text-red-600 mt-2">Photo is required</span>
+              )}
+            </div>
             <div className="form-control mb-6 relative">
               <label className="label">
                 <span className="label-text font-medium">Password</span>
