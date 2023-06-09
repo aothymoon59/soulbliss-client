@@ -12,10 +12,24 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
-        console.log(res.user);
-        toast.success("Successfully sign in!");
-        setLoading(false);
-        navigate(from, { replace: true });
+        const loggedUser = res.user;
+        const savedUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          role: "user",
+        };
+        fetch(`${import.meta.env.VITE_API_URL}/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            setLoading(false);
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => {
         console.log(err.message);
