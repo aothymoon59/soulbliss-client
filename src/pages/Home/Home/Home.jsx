@@ -1,9 +1,10 @@
 import Spinner from "../../../components/Spinner/Spinner.jsx";
+import Banner from "../Banner/Banner.jsx";
 
 const Home = () => {
   return (
     <div>
-      <h2>This is home</h2>
+      <Banner></Banner>
       <Spinner></Spinner>
     </div>
   );

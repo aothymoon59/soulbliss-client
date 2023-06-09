@@ -132,7 +132,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
+                    className="btn btn-ghost btn-circle avatar z-50"
                   >
                     <div className="w-8 lg:w-10 h-8 lg:h-10 rounded-full border">
                       <img

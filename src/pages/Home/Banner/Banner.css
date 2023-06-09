@@ -1,0 +1,19 @@
+/* banner navigation color  */
+:root {
+    --swiper-theme-color: #13795B;
+}
+
+.slider-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.slider-content {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
