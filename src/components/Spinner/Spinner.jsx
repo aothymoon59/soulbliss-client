@@ -1,6 +1,8 @@
 import { RingLoader } from "react-spinners";
+import useAuth from "../../hooks/useAuth";
 
 const Spinner = () => {
+  const { themeIcon } = useAuth();
   return (
     <div
       className="
@@ -12,7 +14,7 @@ const Spinner = () => {
     "
     >
       {/* TODO: color will conditional for dark/light theme  */}
-      <RingLoader size={100} color="#13795B" />
+      <RingLoader size={100} color={`${themeIcon ? "#13795B" : "#cff699"}`} />
     </div>
   );
 };

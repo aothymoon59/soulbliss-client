@@ -58,6 +58,21 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  /* ---------------------------
+      Theme Related Work
+  --------------------------*/
+  const [theme, setTheme] = useState("light");
+  const [themeIcon, setThemeIcon] = useState(true);
+
+  const handleToggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+    setThemeIcon(!themeIcon);
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   const authInfo = {
     user,
     loading,
@@ -67,6 +82,9 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     logOut,
     updateUserProfile,
+    handleToggleTheme,
+    themeIcon,
+    theme,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import Container from "../../../components/Container/Container";
 import LogoTitle from "../../../components/LogoTitle/LogoTitle";
+import useAuth from "../../../hooks/useAuth";
 
 const Footer = () => {
+  const { user, themeIcon } = useAuth();
   return (
-    <div className="w-full my-bg black-text pt-10 pb-5">
+    <div
+      className={`w-full pt-10 pb-5  ${
+        themeIcon ? "my-bg black-text" : "dark-bg white-text"
+      }`}
+    >
       <Container>
         <footer className="footer">
           <div className="">
@@ -18,14 +24,26 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span className="font-semibold theme-text text-lg">Services</span>
+            <span
+              className={`font-semibold text-lg ${
+                themeIcon ? "theme-text" : "dark-theme-text"
+              }`}
+            >
+              Services
+            </span>
             <a className="link link-hover">Branding</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>
           </div>
           <div>
-            <span className=" font-semibold theme-text text-lg">Company</span>
+            <span
+              className={`font-semibold text-lg ${
+                themeIcon ? "theme-text" : "dark-theme-text"
+              }`}
+            >
+              Company
+            </span>
             <Link to="/" className="link link-hover">
               Home
             </Link>
@@ -35,12 +53,20 @@ const Footer = () => {
             <Link to="/classes" className="link link-hover">
               Classes
             </Link>
-            <Link to="/dashboard" className="link link-hover">
-              Dashboard
-            </Link>
+            {user && (
+              <Link to="/dashboard" className="link link-hover">
+                Dashboard
+              </Link>
+            )}
           </div>
           <div>
-            <span className="font-semibold theme-text text-lg">Legal</span>
+            <span
+              className={`font-semibold text-lg ${
+                themeIcon ? "theme-text" : "dark-theme-text"
+              }`}
+            >
+              Legal
+            </span>
             <a className="link link-hover">Terms of use</a>
             <a className="link link-hover">Privacy policy</a>
             <a className="link link-hover">Cookie policy</a>

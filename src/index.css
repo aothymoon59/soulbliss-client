@@ -9,15 +9,29 @@ body {
 
 /* bg theme color  */
 .my-bg {
-    background-color: rgb(32 201 151 / 10%);
+    background-color: #20c9971a;
+
+}
+
+.dark-bg {
+    background-color: #8bfed91a;
 }
 
 .black-text {
     color: black;
 }
 
+.white-text {
+    color: white;
+}
+
 .theme-text {
     color: #13795B;
+
+}
+
+.dark-theme-text {
+    color: #cff699;
 }
 
 /* btn style  */
