@@ -14,6 +14,7 @@ const SocialLogin = () => {
       .then((res) => {
         console.log(res.user);
         toast.success("Successfully sign in!");
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((err) => {

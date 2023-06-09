@@ -1,8 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import Container from "../../../components/Container/Container";
 import LogoTitle from "../../../components/LogoTitle/LogoTitle";
+import useAuth from "../../../hooks/useAuth";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   const navOptions = (
     <>
       <li>
@@ -44,19 +54,21 @@ const Navbar = () => {
           <span className=" lg:text-lg font-medium">Classes</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/dashboard"
-          title="Dashboard"
-          className={({ isActive }) =>
-            `px-3 transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
-              isActive ? " theme-text" : "black-text"
-            }`
-          }
-        >
-          <span className=" lg:text-lg font-medium">Dashboard</span>
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink
+            to="/dashboard"
+            title="Dashboard"
+            className={({ isActive }) =>
+              `px-3 transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${
+                isActive ? " theme-text" : "black-text"
+              }`
+            }
+          >
+            <span className=" lg:text-lg font-medium">Dashboard</span>
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -98,12 +110,50 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <Link
-              to="/login"
-              className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear"
-            >
-              Login
-            </Link>
+            {user ? (
+              <div
+                className="tooltip tooltip-left"
+                data-tip={user?.displayName}
+              >
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-8 h-8 rounded-full border">
+                      <img
+                        src={user?.photoURL}
+                        alt={user?.displayName}
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-compact bg-blue-100 dropdown-content mt-3 p-2 shadow font-medium rounded-box w-52"
+                  >
+                    <li>
+                      <Link onClick={handleLogOut}>
+                        Logout <FaSignOutAlt />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="justify-between">Profile</Link>
+                    </li>
+                    <li>
+                      <Link>Settings</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </Container>

@@ -1,6 +1,6 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Lottie from "lottie-react";
 import signupAnimation from "../../assets/signup.json";
@@ -8,19 +8,14 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
-  const {
-    user,
-    loading,
-    setLoading,
-    createUser,
-    signIn,
-    googleSignIn,
-    logOut,
-    updateUserProfile,
-  } = useAuth();
+  const { loading, setLoading, createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -29,12 +24,11 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const password = data.password;
-    const confirm = data.confirm;
+    const { name, email, password, confirm } = data;
 
     // TODO: use toast here
     if (password !== confirm) {
-      alert("Confirm password no match");
+      toast.error("Password confirmation doesn't match");
       return;
     }
 
@@ -52,7 +46,28 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log(imgData.data.display_url);
+        const imgUrl = imgData.data.display_url;
+
+        createUser(email, password)
+          .then(() => {
+            updateUserProfile(name, imgUrl)
+              .then(() => {
+                toast.success("Successfully sign Up!");
+                setLoading(false);
+                navigate(from, { replace: true });
+              })
+              .catch((err) => {
+                console.log(err.message);
+                toast.error(err.message);
+                setLoading(false);
+              });
+            navigate(from, { replace: true });
+          })
+          .catch((err) => {
+            console.log(err.message);
+            toast.error(err.message);
+            setLoading(false);
+          });
       })
       .catch((err) => {
         console.log(err.message);
