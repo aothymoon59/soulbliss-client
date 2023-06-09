@@ -21,9 +21,9 @@ const Navbar = () => {
           to="/"
           title="Home"
           className={({ isActive }) =>
-            `px-3 transition-colors duration-300 transform hover:bg-gray-300  hover:text-gray-700 ${
-              themeIcon ? "black-text" : "white-text"
-            } ${isActive ? "bg-slate-400" : "bg-transparent"}`
+            `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${
+              themeIcon ? "black-text" : ""
+            } ${isActive ? "bg-lime-100 black-text" : "bg-transparent"}`
           }
         >
           <span className=" lg:text-lg font-medium">Home</span>
@@ -34,8 +34,8 @@ const Navbar = () => {
           to="/instructors"
           title="Instructors"
           className={({ isActive }) =>
-            `px-3 transition-colors duration-300 transform hover:bg-gray-300  hover:text-gray-700 ${
-              themeIcon ? "black-text" : "white-text"
+            `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${
+              themeIcon ? "black-text" : ""
             } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
           }
         >
@@ -47,8 +47,8 @@ const Navbar = () => {
           to="/classes"
           title="Classes"
           className={({ isActive }) =>
-            `px-3 transition-colors duration-300 transform hover:bg-gray-300  hover:text-gray-700 ${
-              themeIcon ? "black-text" : "white-text"
+            `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${
+              themeIcon ? "black-text" : ""
             } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
           }
         >
@@ -61,8 +61,8 @@ const Navbar = () => {
             to="/dashboard"
             title="Dashboard"
             className={({ isActive }) =>
-              `px-3 transition-colors duration-300 transform hover:bg-gray-300  hover:text-gray-700 ${
-                themeIcon ? "black-text" : "white-text"
+              `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${
+                themeIcon ? "black-text" : ""
               } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
             }
           >
@@ -100,7 +100,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase"
+                className="menu menu-sm z-50 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase"
               >
                 {navOptions}
               </ul>
@@ -144,7 +144,7 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-compact my-bg dropdown-content mt-3 p-2 shadow font-medium rounded-box w-52"
+                    className="menu menu-compact bg-[#13795B] dropdown-content mt-3 p-2 z-50 text-white shadow font-medium rounded-box w-52"
                   >
                     <li>
                       <Link onClick={handleLogOut}>

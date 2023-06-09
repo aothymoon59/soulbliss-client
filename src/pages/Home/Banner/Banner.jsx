@@ -16,10 +16,10 @@ const Banner = () => {
         modules={[Navigation, Autoplay]}
         loop={true}
         className="mySwiper"
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
       >
         <SwiperSlide>
           <div className="relative">
@@ -30,10 +30,10 @@ const Banner = () => {
             />
             <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Serenity is inside you
                 </h2>
-                <p className="text-lg font-medium">
+                <p className="text-base sm:text-lg font-medium">
                   Control your body to free your soul
                 </p>
               </div>
@@ -49,10 +49,10 @@ const Banner = () => {
             />
             <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Flexibility is a second power
                 </h2>
-                <p className="text-lg font-medium">
+                <p className="text-base sm:text font-medium">
                   Do yoga today For a better tomorrow
                 </p>
               </div>
@@ -68,10 +68,10 @@ const Banner = () => {
             />
             <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Inspiration for joyful living
                 </h2>
-                <p className="text-lg font-medium">
+                <p className="text-base sm:text font-medium">
                   The theme is so flexible It does yoga with you
                 </p>
               </div>
