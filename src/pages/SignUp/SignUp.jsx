@@ -6,9 +6,20 @@ import Lottie from "lottie-react";
 import signupAnimation from "../../assets/signup.json";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
+import { ImSpinner9 } from "react-icons/im";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
+  const {
+    user,
+    loading,
+    createUser,
+    signIn,
+    googleSignIn,
+    logOut,
+    updateUserProfile,
+  } = useAuth();
 
   const {
     register,
@@ -171,11 +182,17 @@ const SignUp = () => {
                 <small>{showPass ? <FaEye /> : <FaEyeSlash />}</small>
               </p>
             </div>
-            <input
+
+            <button
               type="submit"
-              value="Login"
               className="my-btn w-full hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-in-out"
-            />
+            >
+              {loading ? (
+                <ImSpinner9 className="m-auto animate-spin" size={24} />
+              ) : (
+                "Sign Up"
+              )}
+            </button>
             <p className="text-center mt-4 mb-6">
               <small>
                 Already have an account?{" "}

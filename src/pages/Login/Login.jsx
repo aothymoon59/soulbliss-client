@@ -71,11 +71,12 @@ const Login = () => {
                 <small>{showPass ? <FaEye /> : <FaEyeSlash />}</small>
               </p>
             </div>
-            <input
+            <button
               type="submit"
-              value="Login"
               className="my-btn w-full hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-in-out"
-            />
+            >
+              Login
+            </button>
             <p className="text-center mt-4 mb-6">
               <small>
                 New user?{" "}
