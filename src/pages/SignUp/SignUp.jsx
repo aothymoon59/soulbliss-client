@@ -14,6 +14,7 @@ const SignUp = () => {
   const {
     user,
     loading,
+    setLoading,
     createUser,
     signIn,
     googleSignIn,

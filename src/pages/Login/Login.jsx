@@ -1,14 +1,21 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/login-1.json";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
+import { ImSpinner9 } from "react-icons/im";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const { loading, setLoading, signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -16,7 +23,21 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const { email, password } = data;
+
+    signIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully sign in!");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error(err.message);
+        setLoading(false);
+      });
+  };
 
   return (
     <Container>
@@ -75,7 +96,11 @@ const Login = () => {
               type="submit"
               className="my-btn w-full hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-in-out"
             >
-              Login
+              {loading ? (
+                <ImSpinner9 className="m-auto animate-spin" size={24} />
+              ) : (
+                "Login"
+              )}
             </button>
             <p className="text-center mt-4 mb-6">
               <small>
