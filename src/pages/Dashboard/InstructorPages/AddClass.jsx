@@ -2,19 +2,15 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
 import { MdOutlineAddCard } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AddClass = () => {
   const { user } = useAuth();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const [axiosSecure] = useAxiosSecure();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
     // upload image
     const image = data.image[0];
     const formData = new FormData();
@@ -29,8 +25,31 @@ const AddClass = () => {
     })
       .then((res) => res.json())
       .then((imgData) => {
-        const classImg = imgData.data.display_url;
-        console.log(classImg);
+        if (imgData.success) {
+          const classImg = imgData.data.display_url;
+          const { name, email, instructor, price, seats } = data;
+          const newClass = {
+            name,
+            classImg,
+            instructor,
+            email,
+            seats: parseInt(seats),
+            price: parseFloat(price),
+            status: "pending",
+          };
+          axiosSecure.post("/classes", newClass).then((data) => {
+            if (data.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Class added successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+        }
       });
   };
   return (

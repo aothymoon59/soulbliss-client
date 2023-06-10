@@ -15,6 +15,9 @@ import SelectedClass from "../pages/Dashboard/StudentPages/SelectedClass";
 import EnrolledClass from "../pages/Dashboard/StudentPages/EnrolledClass";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
+import PaymentHistory from "../pages/Dashboard/StudentPages/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -70,11 +73,47 @@ const router = createBrowserRouter([
         ),
       },
       // instructor routes
-      { path: "addClass", element: <AddClass /> },
-      { path: "myClass", element: <MyClasses /> },
+      {
+        path: "addClass",
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "myClass",
+        element: (
+          <InstructorRoute>
+            <MyClasses />
+          </InstructorRoute>
+        ),
+      },
       // student routes
-      { path: "selectedClass", element: <SelectedClass /> },
-      { path: "enrolledClass", element: <EnrolledClass /> },
+      {
+        path: "selectedClass",
+        element: (
+          <StudentRoute>
+            <SelectedClass />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "enrolledClass",
+        element: (
+          <StudentRoute>
+            <EnrolledClass />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "paymentHistory",
+        element: (
+          <StudentRoute>
+            <PaymentHistory />
+          </StudentRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -20,7 +20,7 @@ const Navbar = () => {
   const isAdmin = false;
   // const [isAdmin] = useAdmin();
 
-  const isInstructor = true;
+  const isInstructor = false;
 
   // const [isInstructor] = useInstructor();
   // console.log(isAdmin, isInstructor);
