@@ -28,7 +28,7 @@ const Sidebar = () => {
 
   //TODO: load data from the server to have dynamic isAdmin based on data
   const isAdmin = true;
-  const isInstructor = true;
+  const isInstructor = false;
 
   return (
     <>
