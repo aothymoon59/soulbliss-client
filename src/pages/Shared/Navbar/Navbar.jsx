@@ -14,6 +14,10 @@ const Navbar = () => {
       });
   };
 
+  //TODO: load data from the server to have dynamic isAdmin based on data
+  const isAdmin = true;
+  const isInstructor = false;
+
   const navOptions = (
     <>
       <li>
@@ -58,7 +62,13 @@ const Navbar = () => {
       {user && (
         <li>
           <NavLink
-            to="/dashboard"
+            to={
+              isAdmin
+                ? "/dashboard/manageClass"
+                : isInstructor
+                ? "/dashboard/addClass"
+                : "/dashboard/selectedClass"
+            }
             title="Dashboard"
             className={({ isActive }) =>
               `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${

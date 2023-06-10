@@ -1,14 +1,68 @@
 import { useQuery } from "@tanstack/react-query";
+import EmptyState from "../../Shared/EmptyState/EmptyState";
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/users`);
     return res.json();
   });
+
+  console.log(users);
   return (
-    <div>
-      <h2>Manage Users :{users.length}</h2>
-    </div>
+    <>
+      {users && users.length > 0 && Array.isArray(users) ? (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {users.map((user, index) => {
+                return (
+                  <tr key={user?._id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle w-12 h-12">
+                            <img src={user?.image} alt={user?.name} />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{user?.name}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{user?.email}</td>
+                    <td className="uppercase">{user?.role}</td>
+                    <td>
+                      <div className="flex gap-2 items-center">
+                        <button className="btn btn-accent text-white btn-xs">
+                          Make Admin
+                        </button>
+                        <button className="btn btn-info text-black btn-xs">
+                          Make Instructor
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <EmptyState message={"No Users Data Available!"} />
+      )}
+    </>
   );
 };
 

@@ -13,10 +13,12 @@ const SocialLogin = () => {
     googleSignIn()
       .then((res) => {
         const loggedUser = res.user;
+        console.log(loggedUser);
         const savedUser = {
           name: loggedUser.displayName,
           email: loggedUser.email,
-          role: "user",
+          image: loggedUser.photoURL,
+          role: "student",
         };
         fetch(`${import.meta.env.VITE_API_URL}/users`, {
           method: "POST",
