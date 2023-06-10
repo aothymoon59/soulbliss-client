@@ -1,13 +1,34 @@
 import { useQuery } from "@tanstack/react-query";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const ManageUsers = () => {
+  const [disabled, setDisabled] = useState(false);
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/users`);
     return res.json();
   });
 
-  console.log(users);
+  const handleMakeAdmin = (user) => {
+    fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setDisabled(true);
+          refetch();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${user?.name} is now an Admin`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   return (
     <>
       {users && users.length > 0 && Array.isArray(users) ? (
@@ -42,10 +63,16 @@ const ManageUsers = () => {
                       </div>
                     </td>
                     <td>{user?.email}</td>
-                    <td className="uppercase">{user?.role}</td>
+                    <td className="uppercase">
+                      <div className="badge badge-ghost">{user?.role}</div>
+                    </td>
                     <td>
                       <div className="flex gap-2 items-center">
-                        <button className="btn btn-accent text-white btn-xs">
+                        <button
+                          disabled={disabled}
+                          onClick={() => handleMakeAdmin(user)}
+                          className="btn btn-accent text-white btn-xs"
+                        >
                           Make Admin
                         </button>
                         <button className="btn btn-info text-black btn-xs">
