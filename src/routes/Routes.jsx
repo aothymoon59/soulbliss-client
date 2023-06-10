@@ -14,6 +14,7 @@ import MyClasses from "../pages/Dashboard/InstructorPages/MyClasses";
 import SelectedClass from "../pages/Dashboard/StudentPages/SelectedClass";
 import EnrolledClass from "../pages/Dashboard/StudentPages/EnrolledClass";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: (
       <PrivateRoute>
         <DashboardLayout />
@@ -52,14 +53,28 @@ const router = createBrowserRouter([
     ),
     children: [
       // admin routes
-      { path: "/dashboard/manageClass", element: <ManageClass /> },
-      { path: "/dashboard/manageUsers", element: <ManageUsers /> },
+      {
+        path: "manageClass",
+        element: (
+          <AdminRoute>
+            <ManageClass />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageUsers",
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
+        ),
+      },
       // instructor routes
-      { path: "/dashboard/addClass", element: <AddClass /> },
-      { path: "/dashboard/myClass", element: <MyClasses /> },
+      { path: "addClass", element: <AddClass /> },
+      { path: "myClass", element: <MyClasses /> },
       // student routes
-      { path: "/dashboard/selectedClass", element: <SelectedClass /> },
-      { path: "/dashboard/enrolledClass", element: <EnrolledClass /> },
+      { path: "selectedClass", element: <SelectedClass /> },
+      { path: "enrolledClass", element: <EnrolledClass /> },
     ],
   },
 ]);

@@ -12,6 +12,8 @@ import {
   FaHome,
   FaSignOutAlt,
 } from "react-icons/fa";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
   const { user, themeIcon, logOut } = useAuth();
@@ -27,8 +29,13 @@ const Sidebar = () => {
   };
 
   //TODO: load data from the server to have dynamic isAdmin based on data
-  const isAdmin = true;
-  const isInstructor = false;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
+
+  // const isInstructor = false;
+
+  const [isInstructor] = useInstructor();
+  // console.log(isAdmin, isInstructor);
 
   return (
     <>

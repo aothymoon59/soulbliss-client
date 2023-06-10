@@ -9,7 +9,12 @@
 
 /* montserrat font  */
 body {
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Jost', sans-serif;
+}
+
+.jost-font {
+    font-family: 'Jost', sans-serif;
 }
 
 /* bg theme color  */

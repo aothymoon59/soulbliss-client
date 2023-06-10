@@ -20,6 +20,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,8 +28,8 @@ const Login = () => {
     const { email, password } = data;
 
     signIn(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        reset();
         toast.success("Successfully sign in!");
         setLoading(false);
         navigate(from, { replace: true });
