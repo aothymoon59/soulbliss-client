@@ -11,55 +11,88 @@ const ManageUsers = () => {
 
   // make admin
   const handleMakeAdmin = (user) => {
-    fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          refetch();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: `${user?.name} is now an Admin`,
-            showConfirmButton: false,
-            timer: 1500,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to make Admin!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, made it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
+          method: "PATCH",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              refetch();
+              Swal.fire("Updated!", `${user?.name} is now an Admin`, "success");
+            }
           });
-        }
-      });
+      }
+    });
   };
 
   // make instructor
   const handleMakeInstructor = (user) => {
-    fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          refetch();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: `${user?.name} is now an Instructor`,
-            showConfirmButton: false,
-            timer: 1500,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to make Instructor!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, made it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user._id}`, {
+          method: "PATCH",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              refetch();
+              Swal.fire(
+                "Updated!",
+                `${user?.name} is now an Instructor`,
+                "success"
+              );
+            }
           });
-        }
-      });
+      }
+    });
   };
 
+  // delete a user
   const handleDeleteUser = (user) => {
-    fetch(`${import.meta.env.VITE_API_URL}/users/delete/${user._id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          refetch();
-          Swal.fire("Deleted!", `${user.name} has been deleted.`, "success");
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to delete ${user?.name}!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/users/delete/${user._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire(
+                "Deleted!",
+                `${user.name} has been deleted.`,
+                "success"
+              );
+            }
+          });
+      }
+    });
   };
 
   return (
@@ -75,7 +108,7 @@ const ManageUsers = () => {
                 <th>Email</th>
                 <th>Role</th>
                 <th>Action</th>
-                <th>Delete</th>
+                <th>Delete User</th>
               </tr>
             </thead>
             <tbody>

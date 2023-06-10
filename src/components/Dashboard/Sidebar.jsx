@@ -98,7 +98,7 @@ const Sidebar = () => {
             }
           >
             <FaHome className="w-5 h-5" />
-            <span className="mx-4 font-medium">Go To Home</span>{" "}
+            <span className="ml-4 font-medium">Go To Home</span>{" "}
             <span>
               <img
                 className="object-cover w-6 h-6 mx-2 rounded-full"
