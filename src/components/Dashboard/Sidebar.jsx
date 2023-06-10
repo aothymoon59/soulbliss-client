@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
-  const { themeIcon, logOut } = useAuth();
+  const { user, themeIcon, logOut } = useAuth();
   const navigate = useNavigate();
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -45,7 +45,6 @@ const Sidebar = () => {
             </Link>
           </div>
         </div>
-
         <button
           onClick={handleToggle}
           className="mobile-menu-button p-4 focus:outline-none focus:bg-teal-300"
@@ -87,6 +86,9 @@ const Sidebar = () => {
         </div>
         <div>
           <hr />
+          <div>
+            <Link to="/dashboard"></Link>
+          </div>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -96,7 +98,15 @@ const Sidebar = () => {
             }
           >
             <FaHome className="w-5 h-5" />
-            <span className="mx-4 font-medium">Go To Home</span>
+            <span className="mx-4 font-medium">Go To Home</span>{" "}
+            <span>
+              <img
+                className="object-cover w-6 h-6 mx-2 rounded-full"
+                src={user?.photoURL}
+                alt="avatar"
+                referrerPolicy="no-referrer"
+              />
+            </span>
           </NavLink>
           <NavLink
             to="/instructors"

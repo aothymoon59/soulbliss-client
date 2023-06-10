@@ -7,8 +7,10 @@ import "./Banner.css";
 import slide1 from "../../../assets/banner/slider-1.jpg";
 import slide2 from "../../../assets/banner/slider-2.jpg";
 import slide3 from "../../../assets/banner/slider-3.jpg";
+import useAuth from "../../../hooks/useAuth";
 
 const Banner = () => {
+  const { themeIcon } = useAuth();
   return (
     <>
       <Swiper
@@ -28,7 +30,11 @@ const Banner = () => {
               className="h-[calc(100vh-76px)] w-full object-cover object-center"
               alt="slide 1"
             />
-            <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
+            <div
+              className={`slider-content flex justify-center items-center bg-black h-full w-full mx-auto absolute p-5 ${
+                themeIcon ? "bg-opacity-25" : "bg-opacity-60"
+              }`}
+            >
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Serenity is inside you
@@ -47,7 +53,11 @@ const Banner = () => {
               className="h-[calc(100vh-76px)] w-full object-cover object-center"
               alt="slide 1"
             />
-            <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
+            <div
+              className={`slider-content flex justify-center items-center bg-black h-full w-full mx-auto absolute p-5 ${
+                themeIcon ? "bg-opacity-25" : "bg-opacity-60"
+              }`}
+            >
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Flexibility is a second power
@@ -66,7 +76,11 @@ const Banner = () => {
               className="h-[calc(100vh-76px)] w-full object-cover object-center"
               alt="slide 1"
             />
-            <div className="slider-content flex justify-center items-center bg-black bg-opacity-25 h-full w-full mx-auto absolute p-5">
+            <div
+              className={`slider-content flex justify-center items-center bg-black h-full w-full mx-auto absolute p-5 ${
+                themeIcon ? "bg-opacity-25" : "bg-opacity-60"
+              }`}
+            >
               <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
                   Inspiration for joyful living
