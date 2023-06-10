@@ -13,7 +13,6 @@ const SocialLogin = () => {
     googleSignIn()
       .then((res) => {
         const loggedUser = res.user;
-        console.log(loggedUser);
         const savedUser = {
           name: loggedUser.displayName,
           email: loggedUser.email,
