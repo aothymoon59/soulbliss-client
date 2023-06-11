@@ -36,6 +36,7 @@ const AddClass = () => {
             seats: parseInt(seats),
             price: parseFloat(price),
             status: "pending",
+            enrolled: 0,
           };
           axiosSecure.post("/classes", newClass).then((data) => {
             if (data.data.insertedId) {

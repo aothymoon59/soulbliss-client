@@ -3,6 +3,7 @@ import EmptyState from "../../Shared/EmptyState/EmptyState";
 import Swal from "sweetalert2";
 import { FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -99,7 +100,11 @@ const ManageUsers = () => {
   };
 
   return (
-    <>
+    <div>
+      <SectionTitle
+        heading="Manage Users"
+        subHeading="Empower Your Yoga Studio: Effortlessly Add Classes"
+      />
       {users && users.length > 0 && Array.isArray(users) ? (
         <div className="overflow-x-auto">
           <table className="table">
@@ -181,7 +186,7 @@ const ManageUsers = () => {
       ) : (
         <EmptyState message={"No Users Data Available!"} />
       )}
-    </>
+    </div>
   );
 };
 

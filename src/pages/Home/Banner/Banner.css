@@ -17,3 +17,70 @@
     right: 0;
     margin: auto;
 }
+
+
+
+.word-wrap,
+.middleword {
+    opacity: 0;
+}
+
+.firstWord {
+    transform: translatey(50%);
+}
+
+
+.lastworld {
+    transform: translateY(-50%);
+}
+
+.swiper-slide-active .word-wrap {
+    opacity: 1;
+    transition: opacity .7s ease-in-out;
+    transition-delay: .75s !important;
+}
+
+.word-wrap span {
+    display: block !important;
+}
+
+.swiper-slide-active .word {
+    animation: moveWord 1.5s ease-in-out forwards;
+    animation-delay: 1.1s;
+}
+
+
+.swiper-slide-active span.middleword {
+    animation: animateMidleText 4s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+
+@keyframes moveWord {
+    100% {
+        transform: translatey(0);
+    }
+}
+
+
+@keyframes animateMidleText {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

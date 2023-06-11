@@ -9,8 +9,11 @@
 
 /* montserrat font  */
 body {
-    /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Jost', sans-serif;
+}
+
+.word-wrap h2 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .jost-font {

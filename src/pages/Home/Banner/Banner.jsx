@@ -19,7 +19,7 @@ const Banner = () => {
         loop={true}
         className="mySwiper"
         autoplay={{
-          delay: 5000,
+          delay: 7000,
           disableOnInteraction: false,
         }}
       >
@@ -35,12 +35,16 @@ const Banner = () => {
                 themeIcon ? "bg-opacity-25" : "bg-opacity-60"
               }`}
             >
-              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
-                  Serenity is inside you
+              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white word-wrap">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-5 leading-relaxed">
+                  <span className="firstWord word">Flow with Grace</span>
+                  <span className="middleword">Expand Consciousness</span>
+                  <span className="lastworld word">Embrace Serenity</span>
+                  {/* Serenity is inside you */}
                 </h2>
                 <p className="text-base sm:text-lg font-medium">
-                  Control your body to free your soul
+                  Master your physical self, liberate the essence of your soul,
+                  and find true freedom within.
                 </p>
               </div>
             </div>
@@ -58,12 +62,16 @@ const Banner = () => {
                 themeIcon ? "bg-opacity-25" : "bg-opacity-60"
               }`}
             >
-              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
-                  Flexibility is a second power
+              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white word-wrap">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-5 leading-relaxed">
+                  <span className="firstWord word">Find Balance</span>
+                  <span className="middleword">Discover Strength</span>
+                  <span className="lastworld word">Cultivate Inner Peace</span>
+                  {/* Flexibility is a second power */}
                 </h2>
                 <p className="text-base sm:text font-medium">
-                  Do yoga today For a better tomorrow
+                  Practice yoga now, shape a brighter tomorrow, and embrace a
+                  future filled with wellness.
                 </p>
               </div>
             </div>
@@ -81,12 +89,16 @@ const Banner = () => {
                 themeIcon ? "bg-opacity-25" : "bg-opacity-60"
               }`}
             >
-              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2">
-                  Inspiration for joyful living
+              <div className="sm:w-1/2 text-center my-bg p-5 md:p-10 rounded-2xl text-white word-wrap">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-5 leading-relaxed">
+                  <span className="firstWord word">Connect Mind</span>
+                  <span className="middleword">Nurture Body</span>
+                  <span className="lastworld word">Elevate Spirit</span>
+                  {/* Inspiration for joyful living */}
                 </h2>
                 <p className="text-base sm:text font-medium">
-                  The theme is so flexible It does yoga with you
+                  Embrace the flexible theme that gracefully flows and practices
+                  yoga alongside your journey
                 </p>
               </div>
             </div>
