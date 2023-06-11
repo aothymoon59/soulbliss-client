@@ -15,7 +15,6 @@ const MyClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/classes/${user?.email}`);
-      console.log("res from axios", res.data);
       return res.data;
     },
   });
