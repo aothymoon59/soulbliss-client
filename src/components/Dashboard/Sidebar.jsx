@@ -28,14 +28,8 @@ const Sidebar = () => {
     navigate("/");
   };
 
-  //TODO: load data from the server to have dynamic isAdmin based on data
-  // const isAdmin = true;
   const [isAdmin] = useAdmin();
-
-  // const isInstructor = false;
-
   const [isInstructor] = useInstructor();
-  // console.log(isAdmin, isInstructor);
 
   return (
     <>

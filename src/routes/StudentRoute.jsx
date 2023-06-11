@@ -14,7 +14,7 @@ const StudentRoute = ({ children }) => {
     return <Spinner />;
   }
 
-  if (!isAdmin || (!isInstructor && user)) {
+  if (!isAdmin & !isInstructor && user) {
     return children;
   }
 

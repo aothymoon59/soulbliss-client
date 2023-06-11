@@ -3,8 +3,8 @@ import Container from "../../../components/Container/Container";
 import LogoTitle from "../../../components/LogoTitle/LogoTitle";
 import useAuth from "../../../hooks/useAuth";
 import { FaMoon, FaSignOutAlt, FaSun } from "react-icons/fa";
-// import useAdmin from "../../../hooks/useAdmin";
-// import useInstructor from "../../../hooks/useInstructor";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
   const { user, logOut, themeIcon, handleToggleTheme } = useAuth();
@@ -16,14 +16,8 @@ const Navbar = () => {
       });
   };
 
-  //TODO: load data from the server to have dynamic isAdmin based on data
-  const isAdmin = false;
-  // const [isAdmin] = useAdmin();
-
-  const isInstructor = false;
-
-  // const [isInstructor] = useInstructor();
-  // console.log(isAdmin, isInstructor);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   const navOptions = (
     <>
