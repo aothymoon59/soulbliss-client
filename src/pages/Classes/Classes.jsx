@@ -101,7 +101,7 @@ const Classes = () => {
   return (
     <div>
       <Helmet>
-        <title>Classes - Dashboard</title>
+        <title>Classes - Home</title>
       </Helmet>
       <Cover
         title="Serenity is inside you"
