@@ -32,13 +32,37 @@ const Classes = () => {
   // select class
   const handleSelectClass = (selected) => {
     console.log(selected);
+    const {
+      classImg,
+      email,
+      enrolled,
+      feedback,
+      instructor,
+      name,
+      price,
+      seats,
+      _id,
+    } = selected;
+
     if (user && user?.email) {
+      const selectedClass = {
+        classImg,
+        email,
+        enrolled,
+        feedback,
+        instructor,
+        name,
+        price,
+        seats,
+        selectedId: _id,
+        buyer_email: user.email,
+      };
       fetch(`${import.meta.env.VITE_API_URL}/selected`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(selected),
+        body: JSON.stringify(selectedClass),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -120,9 +144,9 @@ const Classes = () => {
                   </p>
                   <p>
                     Available seats:{" "}
-                    <div className="badge badge-secondary badge-outline">
+                    <span className="badge badge-secondary badge-outline">
                       {singleClass?.seats}
-                    </div>
+                    </span>
                   </p>
                   <div className="card-actions justify-end">
                     {isAdmin || isInstructor ? (
