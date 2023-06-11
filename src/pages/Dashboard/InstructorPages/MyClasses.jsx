@@ -9,7 +9,8 @@ const MyClasses = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
-  const { data: myClass = [], refetch } = useQuery({
+  // TODO: if update add refetch here
+  const { data: myClass = [] } = useQuery({
     queryKey: ["classes", user?.email],
     enabled: !loading,
     queryFn: async () => {
@@ -81,6 +82,7 @@ const MyClasses = () => {
                     </td>
                     <td>{singleClass?.enrolled}</td>
                     <td>{singleClass?.feedback}</td>
+                    {/* TODO: update functionality */}
                     <td>
                       <FaEdit />
                     </td>
