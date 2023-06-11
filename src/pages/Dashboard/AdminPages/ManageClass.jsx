@@ -39,7 +39,7 @@ const ManageClass = () => {
     });
   };
 
-  // handle approve
+  // handle deny
   const handleDeny = (singleClass) => {
     Swal.fire({
       title: "Are you sure?",

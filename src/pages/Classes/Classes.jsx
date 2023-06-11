@@ -2,12 +2,77 @@ import Cover from "../../components/Cover/Cover";
 import coverImg from "../../assets/banner/class-banner.jpg";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import Container from "../../components/Container/Container";
-import useClasses from "../../hooks/useClasses";
 import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "../../components/Spinner/Spinner";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Classes = () => {
-  const [classes, refetch] = useClasses();
-  const { themeIcon } = useAuth();
+  const { themeIcon, user, loading } = useAuth();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // get all approved class
+  const { data: approvedClass = [], refetch } = useQuery({
+    queryKey: ["classes", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/classes/approved/all`
+      );
+      return res.json();
+    },
+  });
+
+  // select class
+  const handleSelectClass = (selected) => {
+    console.log(selected);
+    if (user && user?.email) {
+      fetch(`${import.meta.env.VITE_API_URL}/selected`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(selected),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            refetch();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Class selected successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to select the class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <Cover
@@ -23,7 +88,7 @@ const Classes = () => {
       </div>
       <Container>
         <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {classes.map((singleClass) => {
+          {approvedClass.map((singleClass) => {
             return (
               <div
                 key={singleClass?._id}
@@ -38,8 +103,18 @@ const Classes = () => {
                     alt="Instructor"
                   />
                 </figure>
+
                 <div className="card-body flex-grow">
-                  <h2 className="card-title">{singleClass?.name}</h2>
+                  <h2 className="card-title flex justify-between">
+                    {singleClass?.name}{" "}
+                    <span
+                      className={`text-3xl ${
+                        themeIcon ? "text-[#13795B]" : "white-text"
+                      }`}
+                    >
+                      ${singleClass?.price}
+                    </span>
+                  </h2>
                   <p className="font-medium">
                     Instructor: {singleClass?.instructor}
                   </p>
@@ -50,9 +125,18 @@ const Classes = () => {
                     </div>
                   </p>
                   <div className="card-actions justify-end">
-                    <button className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear">
-                      Select
-                    </button>
+                    {isAdmin || isInstructor ? (
+                      <button className="btn" disabled="disabled">
+                        Select
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleSelectClass(singleClass)}
+                        className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear"
+                      >
+                        Select
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

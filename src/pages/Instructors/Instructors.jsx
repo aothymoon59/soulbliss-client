@@ -1,23 +1,27 @@
 import { useQuery } from "@tanstack/react-query";
 import Cover from "../../components/Cover/Cover";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import Container from "../../components/Container/Container";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Instructors = () => {
-  const [axiosSecure] = useAxiosSecure();
   const { user, loading, themeIcon } = useAuth();
 
   const { data: instructors = [] } = useQuery({
     queryKey: ["users", user?.email],
-    enabled:
-      !loading && !!user?.email && !!localStorage.getItem("access-token"),
+    enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/instructors/all`);
-      return res.data;
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/users/instructors/all`
+      );
+      return res.json();
     },
   });
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div>
