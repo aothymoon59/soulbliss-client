@@ -39,6 +39,39 @@ const ManageClass = () => {
     });
   };
 
+  // handle approve
+  const handleDeny = (singleClass) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to deny this class!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, deny!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `${import.meta.env.VITE_API_URL}/classes/denied/${singleClass._id}`,
+          {
+            method: "PATCH",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              refetch();
+              Swal.fire(
+                "Updated!",
+                `${singleClass?.name} class is denied`,
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <SectionTitle
@@ -126,7 +159,7 @@ const ManageClass = () => {
                           </button>
                         ) : (
                           <button
-                            // onClick={() => handleMakeInstructor(user)}
+                            onClick={() => handleDeny(singleClass)}
                             className="btn btn-error text-white btn-xs"
                           >
                             Deny
