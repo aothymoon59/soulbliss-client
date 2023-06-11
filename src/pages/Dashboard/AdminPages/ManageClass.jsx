@@ -1,10 +1,44 @@
+import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useClasses from "../../../hooks/useClasses";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 
 const ManageClass = () => {
   const [classes, refetch] = useClasses();
-  console.log(classes);
+
+  // handle approve
+  const handleApprove = (singleClass) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to approve this class!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, approve!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `${import.meta.env.VITE_API_URL}/classes/approved/${singleClass._id}`,
+          {
+            method: "PATCH",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              refetch();
+              Swal.fire(
+                "Updated!",
+                `${singleClass?.name} class is approved`,
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <SectionTitle
@@ -72,21 +106,23 @@ const ManageClass = () => {
                     </td>
                     <td>
                       <div className="flex gap-2 items-center">
-                        {classes.status === "approved" ? (
+                        {singleClass.status === "approved" ||
+                        singleClass.status === "denied" ? (
                           <button className="btn btn-xs cursor-not-allowed">
-                            Already Approved
+                            Approve
                           </button>
                         ) : (
                           <button
-                            // onClick={() => handleMakeAdmin(user)}
+                            onClick={() => handleApprove(singleClass)}
                             className="btn btn-success text-white btn-xs"
                           >
                             Approve
                           </button>
                         )}
-                        {classes.status === "denied" ? (
+                        {singleClass.status === "denied" ||
+                        singleClass.status === "approved" ? (
                           <button className="btn btn-xs cursor-not-allowed">
-                            Already Denied
+                            Deny
                           </button>
                         ) : (
                           <button
