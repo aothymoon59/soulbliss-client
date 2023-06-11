@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+
 const Sidebar = () => {
   const [isActive, setActive] = useState("false");
   const { user, themeIcon, logOut } = useAuth();
@@ -93,10 +94,11 @@ const Sidebar = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black    ${
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300 hover:text-black ${
                 themeIcon ? "black-text" : ""
               } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
             }
+            title={user?.displayName}
           >
             <FaHome className="w-5 h-5" />
             <span className="ml-4 font-medium">Go To Home</span>{" "}
