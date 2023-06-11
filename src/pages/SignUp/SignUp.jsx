@@ -9,6 +9,7 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
@@ -97,6 +98,9 @@ const SignUp = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Sign Up - Soul Bliss</title>
+      </Helmet>
       <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 my-20">
         <div className="w-full lg:w-[50%]">
           <Lottie

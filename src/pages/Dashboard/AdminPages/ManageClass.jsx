@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useClasses from "../../../hooks/useClasses";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
+import { Helmet } from "react-helmet-async";
 
 const ManageClass = () => {
   const [classes, refetch] = useClasses();
@@ -74,6 +75,9 @@ const ManageClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Manage Class - Dashboard</title>
+      </Helmet>
       <SectionTitle
         heading="Manage Classes"
         subHeading="Effortlessly organize and enhance your yoga journey"

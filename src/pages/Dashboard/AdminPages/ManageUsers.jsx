@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -101,6 +102,9 @@ const ManageUsers = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Manage Users - Dashboard</title>
+      </Helmet>
       <SectionTitle
         heading="Manage Users"
         subHeading="Empower Your Yoga Studio: Effortlessly Add Classes"

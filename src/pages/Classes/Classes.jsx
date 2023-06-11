@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from "../../components/Spinner/Spinner";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const { themeIcon, user, loading } = useAuth();
@@ -99,6 +100,9 @@ const Classes = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Classes - Dashboard</title>
+      </Helmet>
       <Cover
         title="Serenity is inside you"
         subTitle="Transform your practice and discover inner harmony through our diverse yoga classes"

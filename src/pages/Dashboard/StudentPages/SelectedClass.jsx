@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { FaDollarSign, FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -22,6 +23,9 @@ const SelectedClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Selected Class - Dashboard</title>
+      </Helmet>
       <SectionTitle
         heading="My Classes"
         subHeading="Craft your own journey with your tailored classes"

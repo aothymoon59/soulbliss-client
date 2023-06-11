@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { FaEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { user, loading } = useAuth();
@@ -21,6 +22,9 @@ const MyClasses = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Classes - Dashboard</title>
+      </Helmet>
       <SectionTitle
         heading="My Classes"
         subHeading="Craft your own journey with your tailored classes"

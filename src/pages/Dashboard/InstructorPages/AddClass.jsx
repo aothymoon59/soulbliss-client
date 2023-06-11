@@ -4,6 +4,7 @@ import { MdOutlineAddCard } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -56,6 +57,9 @@ const AddClass = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Add Class - Dashboard</title>
+      </Helmet>
       <SectionTitle
         heading="Add A Class"
         subHeading="Empower Your Yoga Studio: Effortlessly Add Classes"

@@ -4,6 +4,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import Container from "../../components/Container/Container";
 import Spinner from "../../components/Spinner/Spinner";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const { user, loading, themeIcon } = useAuth();
@@ -25,6 +26,9 @@ const Instructors = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Instructors - Soul Bliss</title>
+      </Helmet>
       <Cover
         title="Flexibility is a second power"
         subTitle="Inspiring guides to help you deepen your practice and unlock your full potential."
