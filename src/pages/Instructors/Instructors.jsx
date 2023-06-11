@@ -23,8 +23,7 @@ const Instructors = () => {
     <div>
       <Cover
         title="Flexibility is a second power"
-        subTitle=" Practice yoga now, shape a brighter tomorrow, and embrace a future
-        filled with wellness."
+        subTitle="Inspiring guides to help you deepen your practice and unlock your full potential."
         img="https://i.ibb.co/SfS4p6K/instructor-page.jpg"
       ></Cover>
       <div className="mt-28">
@@ -54,6 +53,7 @@ const Instructors = () => {
                   <h2 className="card-title">{instructor?.name}</h2>
                   <p>Email: {instructor?.email}</p>
                   <div className="card-actions justify-end">
+                    {/* TODO: optional task= see class will be update after assignment result */}
                     <button className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear">
                       See Classes
                     </button>
