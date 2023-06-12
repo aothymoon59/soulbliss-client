@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Container from "../../../components/Container/Container";
+import { Link } from "react-router-dom";
 
 const Discount = () => {
   const calculateTimeLeft = () => {
@@ -76,7 +77,9 @@ const Discount = () => {
             <span className="countdown-label">sec</span>
           </div>
         </div>
-        <button className="btn btn-accent mt-6">Enroll Now</button>
+        <Link to="/classes" className="btn btn-accent mt-6">
+          Enroll Now
+        </Link>
       </div>
     </Container>
   );

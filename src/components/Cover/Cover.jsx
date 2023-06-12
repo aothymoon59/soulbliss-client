@@ -23,7 +23,7 @@ const Cover = ({ img, title, subTitle }) => {
 
           {/* <p className="text-base sm:text font-medium">{subTitle}</p> */}
           <Fade delay={500} cascade damping={0.01}>
-            {subTitle}
+            <p>{subTitle}</p>
           </Fade>
         </div>
       </div>
