@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
+import moment from "moment";
 
 const PaymentHistory = () => {
   const { user, loading } = useAuth();
@@ -12,7 +13,7 @@ const PaymentHistory = () => {
     queryKey: ["enrolled", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/enrolled/${user?.email}`);
+      const res = await axiosSecure.get(`/enrolled/payment/${user?.email}`);
       return res.data;
     },
   });
@@ -61,7 +62,11 @@ const PaymentHistory = () => {
                       </div>
                     </td>
                     <td>{singleClass?.transactionId}</td>
-                    <td>{singleClass?.date}</td>
+                    <td>
+                      {moment(singleClass?.date).format(
+                        "dddd, MMMM Do YYYY, h:mm:ss a"
+                      )}
+                    </td>
                     <td>${singleClass?.price}</td>
                   </tr>
                 );
