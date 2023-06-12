@@ -6,12 +6,13 @@ import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { FaDollarSign, FaTrashAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useAuth();
 
-  const { data: mySelected = [] } = useQuery({
+  const { data: mySelected = [], refetch } = useQuery({
     queryKey: ["selected", user?.email],
     enabled: !loading,
     queryFn: async () => {
@@ -19,6 +20,41 @@ const SelectedClass = () => {
       return res.data;
     },
   });
+
+  // delete a selected class
+  const handleDeleteClass = (selectedClass) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to delete ${selectedClass?.name}!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `${import.meta.env.VITE_API_URL}/selected/delete/${
+            selectedClass._id
+          }`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire(
+                "Deleted!",
+                `${selectedClass.name} has been deleted.`,
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -39,8 +75,8 @@ const SelectedClass = () => {
                 <th>Class</th>
                 <th>Instructor</th>
                 <th>Price</th>
-                <th>Remove</th>
                 <th>Pay</th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody>
@@ -67,17 +103,20 @@ const SelectedClass = () => {
                     <td>{singleClass?.instructor}</td>
                     <td>${singleClass?.price}</td>
                     <td>
-                      <button className="text-red-600 text-xl">
-                        <FaTrashAlt />
-                      </button>
-                    </td>
-                    <td>
                       <Link
                         to={`/dashboard/payment/${singleClass._id}`}
                         className="btn btn-outline btn-success btn-xs"
                       >
                         <FaDollarSign /> Pay Now
                       </Link>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleDeleteClass(singleClass)}
+                        className="text-red-600 text-xl"
+                      >
+                        <FaTrashAlt />
+                      </button>
                     </td>
                   </tr>
                 );
