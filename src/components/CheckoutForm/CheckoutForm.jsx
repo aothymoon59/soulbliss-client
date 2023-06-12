@@ -129,7 +129,7 @@ const CheckoutForm = ({ singleClass }) => {
           )}
         </button>
       </form>
-      {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
+      {cardError && <p className="text-red-600 mt-4 ml-8">{cardError}</p>}
       {transactionId && (
         <p className="text-green-500 mt-4 ml-8">
           Transaction complete with transactionId: {transactionId}
