@@ -31,7 +31,7 @@ const ManageClass = () => {
             if (data.modifiedCount) {
               refetch();
               Swal.fire(
-                "Updated!",
+                "Approved!",
                 `${singleClass?.name} class is approved`,
                 "success"
               );
@@ -64,7 +64,7 @@ const ManageClass = () => {
             if (data.modifiedCount) {
               refetch();
               Swal.fire(
-                "Updated!",
+                "Denied!",
                 `${singleClass?.name} class is denied`,
                 "success"
               );

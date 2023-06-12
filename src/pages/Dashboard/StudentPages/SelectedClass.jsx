@@ -5,6 +5,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { FaDollarSign, FaTrashAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const SelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -18,8 +19,6 @@ const SelectedClass = () => {
       return res.data;
     },
   });
-
-  console.log(mySelected);
 
   return (
     <div>
@@ -73,9 +72,12 @@ const SelectedClass = () => {
                       </button>
                     </td>
                     <td>
-                      <button className="btn btn-outline btn-success btn-xs">
+                      <Link
+                        to={`/dashboard/payment/${singleClass._id}`}
+                        className="btn btn-outline btn-success btn-xs"
+                      >
                         <FaDollarSign /> Pay Now
-                      </button>
+                      </Link>
                     </td>
                   </tr>
                 );

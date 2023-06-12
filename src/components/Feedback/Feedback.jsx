@@ -9,12 +9,11 @@ const Feedback = () => {
   const handleFeedback = (e) => {
     e.preventDefault();
     const feedback = e.target.feedback.value;
-    console.log(feedback);
 
     fetch(
       `${import.meta.env.VITE_API_URL}/classes/feedback/${singleClass._id}`,
       {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "content-type": "application/json",
         },

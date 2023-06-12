@@ -32,7 +32,6 @@ const Classes = () => {
 
   // select class
   const handleSelectClass = (selected) => {
-    console.log(selected);
     const {
       classImg,
       email,
@@ -69,6 +68,7 @@ const Classes = () => {
         .then((data) => {
           if (data.insertedId) {
             refetch();
+            navigate("/dashboard/selectedClass");
             Swal.fire({
               position: "center",
               icon: "success",
