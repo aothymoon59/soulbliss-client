@@ -8,7 +8,7 @@ const LogoTitle = () => {
         <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium sm:font-bold">
           Soul
         </span>
-        {/* TODO: image src will conditionally change when dark/light theme  */}
+
         <img
           src={`${
             themeIcon

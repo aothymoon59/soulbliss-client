@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import StudentRoute from "./StudentRoute";
 import PaymentHistory from "../pages/Dashboard/StudentPages/PaymentHistory";
+import Feedback from "../components/Feedback/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,16 @@ const router = createBrowserRouter([
             <ManageUsers />
           </AdminRoute>
         ),
+      },
+      {
+        path: "feedback/:id",
+        element: (
+          <AdminRoute>
+            <Feedback />
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/classes/single/${params.id}`),
       },
       // instructor routes
       {

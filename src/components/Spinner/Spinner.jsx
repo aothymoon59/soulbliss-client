@@ -13,7 +13,6 @@ const Spinner = () => {
       items-center 
     "
     >
-      {/* TODO: color will conditional for dark/light theme  */}
       <RingLoader size={100} color={`${themeIcon ? "#13795B" : "#cff699"}`} />
     </div>
   );

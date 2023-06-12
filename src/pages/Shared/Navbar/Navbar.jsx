@@ -62,7 +62,6 @@ const Navbar = () => {
       </li>
       {user && (
         <li>
-          {/* TODO: update link here  */}
           <NavLink
             to={
               isAdmin

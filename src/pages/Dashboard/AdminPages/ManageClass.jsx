@@ -3,6 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useClasses from "../../../hooks/useClasses";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const ManageClass = () => {
   const [classes, refetch] = useClasses();
@@ -173,9 +174,12 @@ const ManageClass = () => {
                     </td>
                     {/* TODO: update functionality */}
                     <td>
-                      <button className="btn btn-xs capitalize">
-                        Write feedback
-                      </button>
+                      <Link
+                        to={`/dashboard/feedback/${singleClass._id}`}
+                        className="btn btn-accent btn-xs"
+                      >
+                        Feedback
+                      </Link>
                     </td>
                   </tr>
                 );

@@ -27,8 +27,6 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     const { name, email, password, confirm } = data;
-
-    // TODO: use toast here
     if (password !== confirm) {
       toast.error("Password confirmation doesn't match");
       return;
