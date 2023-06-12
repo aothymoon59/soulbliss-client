@@ -3,13 +3,13 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const axiosSecure = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}`,
+});
+
 const useAxiosSecure = () => {
   const { logOut } = useAuth();
   const navigate = useNavigate();
-
-  const axiosSecure = axios.create({
-    baseURL: `${import.meta.env.VITE_API_URL}`,
-  });
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -33,7 +33,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate, axiosSecure]);
+  }, [logOut, navigate]);
 
   return [axiosSecure];
 };

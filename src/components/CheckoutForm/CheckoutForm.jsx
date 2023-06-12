@@ -27,7 +27,7 @@ const CheckoutForm = ({ singleClass }) => {
           console.log(res);
         });
     }
-  }, []);
+  }, [axiosSecure, singleClass]);
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -88,7 +88,7 @@ const CheckoutForm = ({ singleClass }) => {
         };
         axiosSecure.post("/payments", paymentInfo).then((res) => {
           console.log(res.data);
-          if (res.data.insertedId) {
+          if (res.data.insertResult.insertedId) {
             const text = `Enrolled Successful!, TransactionId: ${paymentIntent.id}`;
             toast.success(text);
             navigate("/dashboard/enrolledClass");
