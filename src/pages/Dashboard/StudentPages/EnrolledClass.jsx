@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const EnrolledClass = () => {
   return (
@@ -6,7 +7,10 @@ const EnrolledClass = () => {
       <Helmet>
         <title>Enrolled Class - Dashboard</title>
       </Helmet>
-      <h2>My Enrolled class</h2>
+      <SectionTitle
+        heading="Enrolled Classes"
+        subHeading="Explore Your Enrolled Classes: Stay Committed!"
+      />
     </div>
   );
 };
