@@ -24,7 +24,6 @@ const CheckoutForm = ({ singleClass }) => {
         .post("/create-payment-intent", { price: singleClass?.price })
         .then((res) => {
           setClientSecret(res.data.clientSecret);
-          console.log(res);
         });
     }
   }, [axiosSecure, singleClass]);
@@ -87,7 +86,6 @@ const CheckoutForm = ({ singleClass }) => {
           date: new Date(),
         };
         axiosSecure.post("/payments", paymentInfo).then((res) => {
-          console.log(res.data);
           if (res.data.insertResult.insertedId) {
             const text = `Enrolled Successful!, TransactionId: ${paymentIntent.id}`;
             toast.success(text);

@@ -10,7 +10,6 @@ const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_GateWay_PK}`);
 
 const Payment = () => {
   const singleClass = useLoaderData();
-  console.log(singleClass);
   return (
     <div>
       <Helmet>
