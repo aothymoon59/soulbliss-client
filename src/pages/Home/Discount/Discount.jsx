@@ -1,0 +1,85 @@
+import { useEffect, useState } from "react";
+import Container from "../../../components/Container/Container";
+
+const Discount = () => {
+  const calculateTimeLeft = () => {
+    const discountEndDate = new Date("2023-06-30"); // Set the end date of the discount
+    const currentDate = new Date();
+    const difference = discountEndDate - currentDate;
+
+    if (difference <= 0) {
+      // Discount has expired
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+
+    // Calculate remaining time
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / 1000 / 60) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    return {
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
+  return (
+    <Container>
+      <div className="flex flex-col items-center justify-center py-8">
+        <h3 className="text-3xl text-center mb-6">
+          <span className="text-success text-5xl font-semibold">19%</span>{" "}
+          discount all classes for a limited time
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
+          <div className="countdown-timer">
+            <span className="countdown font-mono text-5xl">
+              <span style={{ "--value": timeLeft.days }}></span>
+            </span>
+            <span className="countdown-label">days</span>
+          </div>
+          <div className="countdown-timer">
+            <span className="countdown font-mono text-5xl">
+              <span style={{ "--value": timeLeft.hours }}></span>
+            </span>
+            <span className="countdown-label">hours</span>
+          </div>
+          <div className="countdown-timer">
+            <span className="countdown font-mono text-5xl">
+              <span style={{ "--value": timeLeft.minutes }}></span>
+            </span>
+            <span className="countdown-label">min</span>
+          </div>
+          <div className="countdown-timer">
+            <span className="countdown font-mono text-5xl">
+              <span style={{ "--value": timeLeft.seconds }}></span>
+            </span>
+            <span className="countdown-label">sec</span>
+          </div>
+        </div>
+        <button className="btn btn-accent mt-6">Enroll Now</button>
+      </div>
+    </Container>
+  );
+};
+
+export default Discount;

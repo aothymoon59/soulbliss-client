@@ -1,6 +1,6 @@
 import useAuth from "../../hooks/useAuth";
 import { Parallax } from "react-parallax";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const Cover = ({ img, title, subTitle }) => {
   const { themeIcon } = useAuth();
@@ -22,7 +22,7 @@ const Cover = ({ img, title, subTitle }) => {
           </h2>
 
           {/* <p className="text-base sm:text font-medium">{subTitle}</p> */}
-          <Fade delay={1e3} cascade damping={1e-1}>
+          <Fade delay={500} cascade damping={0.01}>
             {subTitle}
           </Fade>
         </div>

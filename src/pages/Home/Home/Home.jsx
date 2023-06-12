@@ -1,6 +1,7 @@
-import Spinner from "../../../components/Spinner/Spinner.jsx";
+// import Spinner from "../../../components/Spinner/Spinner.jsx";
 import Banner from "../Banner/Banner.jsx";
 import { Helmet } from "react-helmet-async";
+import Discount from "../Discount/Discount.jsx";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
         <title>Soul Bliss - Home</title>
       </Helmet>
       <Banner></Banner>
-      <Spinner></Spinner>
+      <Discount></Discount>
     </div>
   );
 };
