@@ -7,7 +7,7 @@ const SectionTitle = ({ heading, subHeading }) => {
     <div
       className={`${
         themeIcon ? "black-text" : "white-text"
-      } mx-auto text-center my-4 md:my-8 black-text jost-font`}
+      } mx-auto text-center mt-4 mb-8 md:mt-8 md:mb-16 black-text jost-font`}
     >
       <h3 className="text-3xl lg:text-[40px] uppercase mb-4 font-semibold">
         {heading}

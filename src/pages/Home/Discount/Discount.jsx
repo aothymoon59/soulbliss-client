@@ -46,7 +46,7 @@ const Discount = () => {
 
   return (
     <Container>
-      <div className="flex flex-col items-center justify-center py-8">
+      <div className="flex flex-col items-center justify-center pt-16 md:pt-28 ">
         <h3 className="text-3xl text-center mb-6">
           <span className="text-success text-5xl font-semibold">19%</span>{" "}
           discount all classes for a limited time

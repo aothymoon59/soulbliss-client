@@ -2,6 +2,9 @@
 import Banner from "../Banner/Banner.jsx";
 import { Helmet } from "react-helmet-async";
 import Discount from "../Discount/Discount.jsx";
+import PopularClasses from "../PopularClasses/PopularClasses.jsx";
+import PopularInstructors from "../PopularInstructors/PopularInstructors.jsx";
+import WhatsNumber from "../WhatsNumber/WhatsNumber.jsx";
 
 const Home = () => {
   return (
@@ -10,7 +13,10 @@ const Home = () => {
         <title>Soul Bliss - Home</title>
       </Helmet>
       <Banner></Banner>
+      <PopularClasses></PopularClasses>
       <Discount></Discount>
+      <PopularInstructors></PopularInstructors>
+      <WhatsNumber></WhatsNumber>
     </div>
   );
 };

@@ -172,7 +172,6 @@ const ManageClass = () => {
                         )}
                       </div>
                     </td>
-                    {/* TODO: update functionality */}
                     <td>
                       <Link
                         to={`/dashboard/feedback/${singleClass._id}`}
@@ -188,7 +187,7 @@ const ManageClass = () => {
           </table>
         </div>
       ) : (
-        <EmptyState message={"No Users Data Available!"} />
+        <EmptyState message={"No Classes Available!"} />
       )}
     </div>
   );
