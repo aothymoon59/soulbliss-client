@@ -62,7 +62,7 @@ const SelectedClass = () => {
         <title>Selected Class - Dashboard</title>
       </Helmet>
       <SectionTitle
-        heading="My Classes"
+        heading="My Selected Classes"
         subHeading="Craft your own journey with your tailored classes"
       />
       {mySelected && mySelected.length > 0 && Array.isArray(mySelected) ? (

@@ -16,7 +16,6 @@ const PopularClasses = () => {
     },
   });
 
-  console.log(popularClasses);
   return (
     <div className="pt-16 md:pt-28">
       <Container>

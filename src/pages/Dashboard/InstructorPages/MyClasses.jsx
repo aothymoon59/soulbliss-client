@@ -5,6 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import EmptyState from "../../Shared/EmptyState/EmptyState";
 import { FaEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const { user, loading } = useAuth();
@@ -85,9 +86,19 @@ const MyClasses = () => {
                     </td>
                     <td>{singleClass?.enrolled}</td>
                     <td>{singleClass?.feedback}</td>
-                    {/* TODO: update functionality */}
+
                     <td>
-                      <FaEdit />
+                      {singleClass?.status === "denied" ? (
+                        <Link
+                          to={`/dashboard/updateMyClass/${singleClass._id}`}
+                        >
+                          <FaEdit />
+                        </Link>
+                      ) : (
+                        <button className="cursor-not-allowed">
+                          <FaEdit />
+                        </button>
+                      )}
                     </td>
                   </tr>
                 );

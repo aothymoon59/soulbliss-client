@@ -20,6 +20,7 @@ import StudentRoute from "./StudentRoute";
 import PaymentHistory from "../pages/Dashboard/StudentPages/PaymentHistory";
 import Feedback from "../components/Feedback/Feedback";
 import Payment from "../pages/Dashboard/StudentPages/Payment";
+import UpdateMyClass from "../pages/Dashboard/InstructorPages/UpdateMyClass";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,16 @@ const router = createBrowserRouter([
             <MyClasses />
           </InstructorRoute>
         ),
+      },
+      {
+        path: "updateMyClass/:id",
+        element: (
+          <InstructorRoute>
+            <UpdateMyClass />
+          </InstructorRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/classes/single/${params.id}`),
       },
       // student routes
       {
