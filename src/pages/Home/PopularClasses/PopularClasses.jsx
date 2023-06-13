@@ -42,6 +42,7 @@ const PopularClasses = () => {
                   <h2 className="card-title justify-center">
                     {singleClass?.name}
                   </h2>
+                  <p className="font-bold">Enrolled: {singleClass?.enrolled}</p>
                   <p className="font-medium">
                     Instructor: {singleClass?.instructor}
                   </p>
