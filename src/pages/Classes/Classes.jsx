@@ -120,9 +120,9 @@ const Classes = () => {
             return (
               <div
                 key={singleClass?._id}
-                className={`card card-compact w-full my-bg shadow-xl flex flex-col ${
-                  themeIcon ? "black-text" : "white-text"
-                }`}
+                className={`card card-compact w-full  shadow-xl flex flex-col ${
+                  singleClass?.seats === 0 ? "bg-red-200" : "my-bg"
+                } ${themeIcon ? "black-text" : "white-text"}`}
               >
                 <figure className="flex-shrink-0">
                   <img
@@ -153,7 +153,7 @@ const Classes = () => {
                     </span>
                   </p>
                   <div className="card-actions justify-end">
-                    {isAdmin || isInstructor ? (
+                    {singleClass.seats === 0 || isAdmin || isInstructor ? (
                       <button className="btn" disabled="disabled">
                         Select
                       </button>
