@@ -47,7 +47,7 @@ const PopularInstructors = () => {
                 <img
                   src={instructor?.image}
                   className="w-full h-[300px] sm:h-[450px] lg:h-[350px] xl:h-[400px] object-cover object-center rounded-2xl"
-                  alt=""
+                  alt={instructor?.name}
                 />
                 <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-semibold capitalize text-center absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center white-text my-bg p-3 rounded-2xl">
                   {instructor?.name}

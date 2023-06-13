@@ -127,7 +127,7 @@ const Classes = () => {
                 <figure className="flex-shrink-0">
                   <img
                     src={singleClass?.classImg}
-                    className="w-full h-[300px] sm:h-[450px] lg:h-[350px] xl:h-[400px] object-cover object-center"
+                    className="class-img w-full h-[300px] sm:h-[450px] lg:h-[350px] xl:h-[400px] object-cover object-center"
                     alt="Instructor"
                   />
                 </figure>
@@ -153,7 +153,7 @@ const Classes = () => {
                     </span>
                   </p>
                   <div className="card-actions justify-end">
-                    {singleClass.seats === 0 || isAdmin || isInstructor ? (
+                    {singleClass?.seats === 0 || isAdmin || isInstructor ? (
                       <button className="btn" disabled="disabled">
                         Select
                       </button>

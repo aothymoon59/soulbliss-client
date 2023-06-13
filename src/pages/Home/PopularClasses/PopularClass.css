@@ -1,0 +1,8 @@
+.class-img {
+    transform: scale(1);
+    transition: all .25s linear;
+}
+
+.class-img:hover {
+    transform: scale(1.1);
+}
