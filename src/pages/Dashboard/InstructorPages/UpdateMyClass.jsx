@@ -47,7 +47,7 @@ const UpdateMyClass = () => {
       </Helmet>
       <SectionTitle
         heading="Update A Class"
-        subHeading="Empower Your Yoga Studio: Effortlessly Add Classes"
+        subHeading="Empower Your Yoga Studio: Effortlessly Update Classes"
       />
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
