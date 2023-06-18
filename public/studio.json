@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "icon": "https://i.ibb.co/87cxCYj/bottle-of-water.png",
+    "name": "Premium Water"
+  },
+  {
+    "id": 2,
+    "icon": "https://i.ibb.co/JkNsNxn/stress.png",
+    "name": "Control Stress"
+  },
+  {
+    "id": 3,
+    "icon": "https://i.ibb.co/yqCJbx8/locker.png",
+    "name": "Comfortable Locker-room"
+  },
+  {
+    "id": 4,
+    "icon": "https://i.ibb.co/PFhHy2M/fitness.png",
+    "name": "All-In-One Workout"
+  },
+  {
+    "id": 5,
+    "icon": "https://i.ibb.co/7QLdwpF/waving-hand.png",
+    "name": "Welcoming Studios"
+  },
+  {
+    "id": 6,
+    "icon": "https://i.ibb.co/VxjdMFz/best-customer-experience.png",
+    "name": "Experienced Teachers"
+  },
+
+  {
+    "id": 7,
+    "icon": "https://i.ibb.co/tXdc972/community.png",
+    "name": "Community Connection"
+  },
+
+  {
+    "id": 8,
+    "icon": "https://i.ibb.co/LgNpCPM/online-streaming.png",
+    "name": "Livestream Classes"
+  }
+]

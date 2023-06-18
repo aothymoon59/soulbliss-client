@@ -6,6 +6,7 @@ import PopularClasses from "../PopularClasses/PopularClasses.jsx";
 import PopularInstructors from "../PopularInstructors/PopularInstructors.jsx";
 import WhatsNumber from "../WhatsNumber/WhatsNumber.jsx";
 import Testimonials from "../Testimonials/Testimonials.jsx";
+import Studio from "../Studio/Studio.jsx";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <PopularClasses></PopularClasses>
       <Discount></Discount>
       <PopularInstructors></PopularInstructors>
+      <Studio></Studio>
       <WhatsNumber></WhatsNumber>
       <Testimonials />
     </div>
