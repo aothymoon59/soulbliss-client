@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "../../../components/Container/Container";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import "./Studio.css";
+import { Link } from "react-router-dom";
 
 const Studio = () => {
   const [services, setServices] = useState([]);
@@ -31,6 +32,17 @@ const Studio = () => {
                 </h4>
               </div>
             ))}
+          </div>
+          <div className="text-center">
+            <p className="my-5 text-[#cff699] text-2xl font-semibold">
+              Yoga like never before
+            </p>
+            <Link
+              to="/classes"
+              className="my-btn hover:bg-transparent transition-all duration-200 ease-linear mt-6"
+            >
+              Try Our Class
+            </Link>
           </div>
         </div>
       </Container>

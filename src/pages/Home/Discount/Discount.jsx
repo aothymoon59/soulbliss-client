@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Discount = () => {
   const calculateTimeLeft = () => {
-    const discountEndDate = new Date("2023-06-30"); // Set the end date of the discount
+    const discountEndDate = new Date("2023-07-10"); // Set the end date of the discount
     const currentDate = new Date();
     const difference = discountEndDate - currentDate;
 
@@ -48,7 +48,7 @@ const Discount = () => {
     <Container>
       <div className="flex flex-col items-center justify-center pt-16 md:pt-28 ">
         <h3 className="text-3xl text-center mb-6">
-          <span className="text-success text-5xl font-semibold">19%</span>{" "}
+          <span className="text-success text-5xl font-semibold">35%</span>{" "}
           discount all classes for a limited time
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
@@ -77,7 +77,10 @@ const Discount = () => {
             <span className="countdown-label">sec</span>
           </div>
         </div>
-        <Link to="/classes" className="btn btn-accent mt-6">
+        <Link
+          to="/classes"
+          className="my-btn hover:bg-transparent hover:text-[#13795B] transition-all duration-200 ease-linear mt-6"
+        >
           Enroll Now
         </Link>
       </div>
