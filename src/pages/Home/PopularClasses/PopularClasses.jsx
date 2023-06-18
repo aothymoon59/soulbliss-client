@@ -6,6 +6,7 @@ import "./PopularClass.css";
 
 const PopularClasses = () => {
   const { user, loading } = useAuth();
+
   // get popular instructors
   const { data: popularClasses = [] } = useQuery({
     queryKey: ["classes", user?.email],

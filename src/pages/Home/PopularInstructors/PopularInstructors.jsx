@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Pagination, Autoplay } from "swiper";
 
 const PopularInstructors = () => {
   const { user, loading } = useAuth();
@@ -36,11 +36,16 @@ const PopularInstructors = () => {
             slidesPerView={3}
             spaceBetween={30}
             freeMode={true}
+            loop={true}
             pagination={{
               clickable: true,
             }}
-            modules={[FreeMode, Pagination]}
+            modules={[FreeMode, Pagination, Autoplay]}
             className="mySwiper"
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
           >
             {popularInstructors.map((instructor) => (
               <SwiperSlide className="relative" key={instructor?._id}>

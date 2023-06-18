@@ -11,7 +11,7 @@ const WhatsNumber = () => {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <div className="py-16 md:py-28">
+      <section className="py-16 md:py-28">
         <Container>
           <SectionTitle
             heading="What's the numbers"
@@ -55,7 +55,7 @@ const WhatsNumber = () => {
             </div>
           </div>
         </Container>
-      </div>
+      </section>
     </ScrollTrigger>
   );
 };

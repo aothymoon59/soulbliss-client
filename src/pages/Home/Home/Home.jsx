@@ -5,6 +5,7 @@ import Discount from "../Discount/Discount.jsx";
 import PopularClasses from "../PopularClasses/PopularClasses.jsx";
 import PopularInstructors from "../PopularInstructors/PopularInstructors.jsx";
 import WhatsNumber from "../WhatsNumber/WhatsNumber.jsx";
+import Testimonials from "../Testimonials/Testimonials.jsx";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Discount></Discount>
       <PopularInstructors></PopularInstructors>
       <WhatsNumber></WhatsNumber>
+      <Testimonials />
     </div>
   );
 };

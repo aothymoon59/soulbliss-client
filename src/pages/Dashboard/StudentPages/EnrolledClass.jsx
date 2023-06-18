@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 const EnrolledClass = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
+
   const { data: myEnrolled = [] } = useQuery({
     queryKey: ["enrolled", user?.email],
     enabled: !loading,
