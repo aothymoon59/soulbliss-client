@@ -13,9 +13,8 @@ const Studio = () => {
       .then((data) => setServices(data));
   }, []);
 
-  console.log(services);
   return (
-    <section className="py-16 md:py-28">
+    <section className="pt-16 md:pt-28">
       <Container>
         <SectionTitle heading="The Studio" subHeading="The Place You'll Love" />
         <div className="studio-bg bg-fixed py-20 px-5 md:px-12 lg:px-20">

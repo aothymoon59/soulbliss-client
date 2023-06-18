@@ -7,6 +7,7 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors.jsx";
 import WhatsNumber from "../WhatsNumber/WhatsNumber.jsx";
 import Testimonials from "../Testimonials/Testimonials.jsx";
 import Studio from "../Studio/Studio.jsx";
+import Subscribe from "../Subscribe/Subscribe.jsx";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <Studio></Studio>
       <WhatsNumber></WhatsNumber>
       <Testimonials />
+      <Subscribe></Subscribe>
     </div>
   );
 };

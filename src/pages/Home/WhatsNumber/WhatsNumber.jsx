@@ -11,7 +11,7 @@ const WhatsNumber = () => {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <section className="py-16 md:py-28">
+      <section className="pt-16 md:pt-28">
         <Container>
           <SectionTitle
             heading="What's the numbers"
