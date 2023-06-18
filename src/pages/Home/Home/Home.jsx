@@ -8,6 +8,7 @@ import WhatsNumber from "../WhatsNumber/WhatsNumber.jsx";
 import Testimonials from "../Testimonials/Testimonials.jsx";
 import Studio from "../Studio/Studio.jsx";
 import Subscribe from "../Subscribe/Subscribe.jsx";
+import Reason from "../Reason/Reason.jsx";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Discount></Discount>
       <PopularInstructors></PopularInstructors>
       <Studio></Studio>
+      <Reason></Reason>
       <WhatsNumber></WhatsNumber>
       <Testimonials />
       <Subscribe></Subscribe>
