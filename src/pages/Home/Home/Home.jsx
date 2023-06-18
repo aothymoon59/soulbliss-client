@@ -9,6 +9,7 @@ import Testimonials from "../Testimonials/Testimonials.jsx";
 import Studio from "../Studio/Studio.jsx";
 import Subscribe from "../Subscribe/Subscribe.jsx";
 import Reason from "../Reason/Reason.jsx";
+import ParallaxMessage from "../ParallaxMessage/ParallaxMessage.jsx";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <Reason></Reason>
       <WhatsNumber></WhatsNumber>
       <Testimonials />
+      <ParallaxMessage></ParallaxMessage>
       <Subscribe></Subscribe>
     </div>
   );

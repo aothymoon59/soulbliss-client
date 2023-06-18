@@ -6,7 +6,7 @@ const Subscribe = () => {
     e.preventDefault();
   };
   return (
-    <section className="pt-16 md:pt-28">
+    <section className="py-16 md:py-28">
       <Container>
         <div className="flex flex-col md:flex-row flex-wrap gap-3 items-center md:justify-around">
           <img
