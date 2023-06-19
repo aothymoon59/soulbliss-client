@@ -48,8 +48,8 @@ const Discount = () => {
     <Container>
       <div className="flex flex-col items-center justify-center pt-16 md:pt-28 ">
         <h3 className="text-3xl text-center mb-6">
-          <span className="text-success text-5xl font-semibold">35%</span>{" "}
-          discount all classes for a limited time
+          Get <span className="text-success text-5xl font-semibold">35%</span>{" "}
+          Discount For All Yoga Classes for a limited time
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
           <div className="countdown-timer">
