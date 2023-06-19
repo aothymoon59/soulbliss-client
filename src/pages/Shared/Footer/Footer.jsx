@@ -56,6 +56,9 @@ const Footer = () => {
             <Link to="/about" className="link link-hover">
               About
             </Link>
+            <Link to="/contact" className="link link-hover">
+              Contact
+            </Link>
             {user && (
               <Link to="/dashboard" className="link link-hover">
                 Dashboard

@@ -73,6 +73,19 @@ const Navbar = () => {
           <span className=" lg:text-lg font-medium">About</span>
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/contact"
+          title="Contact"
+          className={({ isActive }) =>
+            `px-3 transition-colors duration-300 transform hover:bg-gray-300   ${
+              themeIcon ? "black-text" : ""
+            } ${isActive ? "bg-lime-100 text-black" : "bg-transparent"}`
+          }
+        >
+          <span className=" lg:text-lg font-medium">Contact</span>
+        </NavLink>
+      </li>
       {user && (
         <li>
           <NavLink

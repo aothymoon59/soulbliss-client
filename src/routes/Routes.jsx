@@ -22,6 +22,7 @@ import Feedback from "../components/Feedback/Feedback";
 import Payment from "../pages/Dashboard/StudentPages/Payment";
 import UpdateMyClass from "../pages/Dashboard/InstructorPages/UpdateMyClass";
 import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/login",
