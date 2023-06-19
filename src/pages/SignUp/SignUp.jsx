@@ -99,7 +99,7 @@ const SignUp = () => {
       <Helmet>
         <title>Sign Up - Soul Bliss</title>
       </Helmet>
-      <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 my-20">
+      <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-10 py-20">
         <div className="w-full lg:w-[50%]">
           <Lottie
             className="lg:w-3/4 ml-auto"
