@@ -4,6 +4,8 @@ Welcome to Soul Bliss, a premier Yoga training school inspired by the Summer Cam
 
 ### Live Site: https://soulbliss-77696.web.app/
 
+### Server Side Code: https://github.com/aothymoon59/soulbliss-server
+
 ### Technologies Utilized
 
 To deliver a seamless experience, we have harnessed the power of various technologies:
