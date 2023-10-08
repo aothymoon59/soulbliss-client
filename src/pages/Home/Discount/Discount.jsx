@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Discount = () => {
   const calculateTimeLeft = () => {
-    const discountEndDate = new Date("2023-08-31"); // Set the end date of the discount
+    const discountEndDate = new Date("2023-10-30"); // Set the end date of the discount
     const currentDate = new Date();
     const difference = discountEndDate - currentDate;
 
